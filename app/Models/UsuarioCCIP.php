@@ -34,8 +34,7 @@ class UsuarioCCIP extends Model
         'password',
     ];
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
     public function setPasswordAttribute($value){
         $this->attributes['password'] = bcrypt($value);

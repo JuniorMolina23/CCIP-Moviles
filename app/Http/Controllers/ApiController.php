@@ -19,8 +19,8 @@ use Psy\Readline\Hoa\Console;
 class ApiController extends Controller
 {
     public  function validar($id,$token){
-        $tokenv = UsuarioCCIP::all('id','remember_token')->where('id',$id)->first;
-        if ($tokenv->remember_token == $token){
+        $tokenv = UsuarioCCIP::all('id','remember_token')->where('id',"=",$id)->first;
+        if ($tokenv->remember_token->remember_token == $token){
             return true;
         }
         return false;
@@ -70,7 +70,7 @@ class ApiController extends Controller
             $traslado->usuario_id = $request->usuario_id;
             $traslado->save();
             return response()->json([
-                'response'=>1,
+                'response'=>1
             ]);
         }
         return response()->json([
