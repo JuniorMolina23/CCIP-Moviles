@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Exports\CombustibleExport;
 use App\Exports\OperacionExport;
+use App\Exports\OtrosExport;
+use App\Exports\PeajeExport;
 use App\Exports\TrasladoExport;
 use App\Http\Requests\reporteRequest;
 use Carbon\Carbon;
@@ -23,8 +25,12 @@ class HomeController extends Controller
                 return Excel::download(new CombustibleExport($inicio,$fin), 'Combustible '.$date.'.xlsx');
             case('2'):
                 return Excel::download(new TrasladoExport($inicio,$fin), 'Traslado '.$date.'.xlsx');
+            case('3'):
+                return Excel::download(new PeajeExport($inicio,$fin), 'Peaje '.$date.'.xlsx');
+            case('4'):
+                return Excel::download(new OtrosExport($inicio,$fin), 'Otros '.$date.'.xlsx');
             default:
-                dd($request->tabla);
+                return redirect('/home');
         }
         return redirect('/home');
     }

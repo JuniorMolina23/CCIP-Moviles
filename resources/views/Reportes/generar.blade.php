@@ -36,7 +36,7 @@
                 </div>
                 <div class="container text-center">
                     <div class="col align-self-center">
-                        <label class="form-label" >Estado</label>
+                        <label class="form-label" >Tabla</label>
                         <select class="form-select" id="tabla" aria-label="Default select example" name="tabla" required>
                             <option value="0" selected>General</option>
                             <option value="1">Combustible</option>
